@@ -3,11 +3,11 @@ Scheduler
 Written in Python.
 
 Problem Statement
----------------
+-----------------
 Given a JSON file with courses and lists of prerequisites for each course, print out courses in an order that they can be taken. All prerequisites for a course need to be printed before the course itself can be printed.
 
 Problem Solution
----------------
+----------------
 ###Key Data Structures
 - prerequisities dictionary: key is a course name, value is a set of courses that are prerequisities to key's course
 - dependencies dictionary: key is a course name, value is a set of courses that depend on key's course, meaning that the key's course is a prerequisite to all of the courses stored in the value set
@@ -83,7 +83,7 @@ Given <Course>: [<prerequisities>] of C: [A, B], A: [], B: [], D: [C]:
     - Summary: prerequisites = {}; dependencies = {}; queue = (); taken = (A, B, C, D); A, B, C, D have been printed in that order
 
 Runtime Analysis
-==========
+----------------
 Each record in the file will get processed once, incurring O(n).
 The program guarantees to check each record again a maximum of one time from the queue (courses without prerequisites won't get enqueued, and courses get enqueued only when its last unprinted prerequisite gets printed, which can only happen once). This would incur O(n).
 So, overall runtime is O(n), where n is the number of unique classes in the provided file.
