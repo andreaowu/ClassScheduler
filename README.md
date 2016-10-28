@@ -1,20 +1,20 @@
-#Scheduler
-
+Scheduler
+==========
 Written in Python.
 
 Problem Statement
-==========
+---------------
 Given a JSON file with courses and lists of prerequisites for each course, print out courses in an order that they can be taken. All prerequisites for a course need to be printed before the course itself can be printed.
 
 Problem Solution
-==========
-##Key Data Structures
+---------------
+###Key Data Structures
 - prerequisities dictionary: key is a course name, value is a set of courses that are prerequisities to key's course
 - dependencies dictionary: key is a course name, value is a set of courses that depend on key's course, meaning that the key's course is a prerequisite to all of the courses stored in the value set
 - taken set: courses that have been printed already
 - queue: courses that are ready to get printed
 
-##Steps:
+###Steps
 1. Iterate through each course given in the input file.
 2. Print out courses that have no prerequisites or courses where each of its prerequisites are in taken. Add the printed course to taken.
 3. When a course C gets printed out:
@@ -30,11 +30,11 @@ Problem Solution
 6. Loop through the queue until no more elements exist.
     a. Upon getting dequeued, a course will automatically get printed. Do step 3.
 
-##Assumptions:
+###Assumptions
 - JSON file is correctly formatted, meaning a list is given, with course names as strings, prerequisites as lists.
 - Each course name is unique and will only have one list of prerequisites (ie one course will not show up as the key twice in the JSON file).
 
-##Test Cases:
+###Test Cases
 - Given <Course>: [<prerequisities>] of A: [], B: [], C: [A, B], D: [C]:
     - File order of A B C D (all prerequisites are listed before courses that have those prerequisites)
     - File order of D C A B (all prerequisites are listed after courses that have those prerequisites)
@@ -44,7 +44,7 @@ Problem Solution
 - Provided file does not exist.
 - Circular dependencies are identified.
 
-## Example run-through:
+### Example Run-Through
 Given <Course>: [<prerequisities>] of C: [A, B], A: [], B: [], D: [C]:
 
 1. First process C: [A, B]. Since neither A nor B is in taken yet:
