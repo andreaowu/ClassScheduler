@@ -32,6 +32,7 @@ Problem Solution
 
 ###Assumptions
 - JSON file is correctly formatted, meaning a list is given, with course names as strings, prerequisites as lists.
+- Each course listed as a prerequisite to another course will in turn have its own prerequisites (ie a course that shows up as a 'value' for another 'key' will show up as a 'key' somewhere in the file).
 - Each course name is unique and will only have one list of prerequisites (ie one course will not show up as the key twice in the JSON file).
 
 ###Test Cases
