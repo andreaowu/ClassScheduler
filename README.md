@@ -86,5 +86,5 @@ Given <Course>: [<prerequisities>] of C: [A, B], A: [], B: [], D: [C]:
 Runtime Analysis
 ----------------
 Each record in the file will get processed once, incurring O(n).
-The program guarantees to check each record again a maximum of one time from the queue (courses without prerequisites won't get enqueued, and courses get enqueued only when its last unprinted prerequisite gets printed, which can only happen once). This would incur O(n).
-So, overall runtime is O(n), where n is the number of unique classes in the provided file.
+For each class x that gets printed, the set of courses that have x get iterated through. This is also O(n).
+So, overall runtime is O(n ^ 2), where n is the number of unique classes in the provided file.
